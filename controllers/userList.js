@@ -87,7 +87,9 @@ export async function addUsersThroughCsv(req, res){
             userListId: listId,
         })
 
-        // TODO: 1) parse csv and produce messages for it
+        // we will break records in multiple chunks then to be consumed by consumers
+
+        //  1) parse csv and produce messages for it
         let chunk = [];
         let totalCount = 0;
         const CHUNK_SIZE = process.env.CSV_RECORD_CHUNK_SIZE || 500;
