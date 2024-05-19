@@ -61,7 +61,7 @@ export default async function addUsersconsumer({message}){
                 processedCount: data.length
             },
             $push: {
-                failedRecords
+                failedRecords: {$each: failedRecords}
             }
         }, {session})
 
